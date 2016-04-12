@@ -3,11 +3,12 @@ msgpack = require 'msgpack'
 class MsgpackRPC
   id : 0
 
-  cbs : []
+  cbs : {}
 
   methods : {}
 
-  constructor : (@namespace, @sock) -> @sock.on 'data', @_parse.bind this
+  constructor : (@namespace, @sock) ->
+    @sock.on 'data', @_parse.bind this
 
   _write : (data) ->
     try
@@ -16,9 +17,9 @@ class MsgpackRPC
       setTimeout @_write.bind(this, data), 500
 
   invoke : (method, params, cb) ->
-    req = msgpack.pack [0, @id++, "#{@namespace}.#{method}", params]
+    req = msgpack.pack [0, @id, "#{@namespace}.#{method}", params]
     @_write req
-    @cbs.push cb
+    @cbs[@id++] = cb
 
   _parse : (data) ->
     parsed = msgpack.unpack data
@@ -33,7 +34,10 @@ class MsgpackRPC
     # Response: [type, msgid, error, result]
     else if parsed[0] is 1
       # Call the adecuate callback
-      @cbs[parsed[1]](parsed[2], parsed[3])
-      @cbs[parsed[1]] = null if parsed[4] is true
+      isend = (parsed[4] is true)
+      console.log @cbs
+      console.log parsed[1]
+      @cbs[parsed[1]](parsed[2], parsed[3], isend)
+      delete @cbs[parsed[1]] if isend
 
 module.exports = MsgpackRPC
