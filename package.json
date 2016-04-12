@@ -1,0 +1,23 @@
+{
+  "name": "msgpackrpc",
+  "version": "1.0.0",
+  "description": "Msgpack over RPC, with multiple responses support",
+  "main": "index.js",
+  "keywords": [
+    "msgpack",
+    "rpc"
+  ],
+  "author": "Luis Iván Cuende <luis@stampery.com>",
+  "contributors": {
+    "name": "Pablo Merino",
+    "email": "pablo@stampery.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "msgpack": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stampery/msgpackrpc.git"
+  }
+}
