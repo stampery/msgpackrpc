@@ -35,8 +35,6 @@ class MsgpackRPC
     else if parsed[0] is 1
       # Call the adecuate callback
       isend = (parsed[4] is true)
-      console.log @cbs
-      console.log parsed[1]
       @cbs[parsed[1]](parsed[2], parsed[3], isend)
       delete @cbs[parsed[1]] if isend
 
