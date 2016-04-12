@@ -1,7 +1,7 @@
 Msgpack w/ RPC
 =======
 
-[![NPM Package](https://img.shields.io/npm/v/msgpackrpc.svg?style=flat-square)](https://www.npmjs.org/package/msgpackrpc)
+[![NPM Package](https://img.shields.io/npm/v/msgpackrpc.svg)](https://www.npmjs.org/package/msgpackrpc)
 
 ## License
 
