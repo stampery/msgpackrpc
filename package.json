@@ -1,6 +1,6 @@
 {
   "name": "msgpackrpc",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Msgpack over RPC, with multiple responses support",
   "main": "index.js",
   "keywords": [
