@@ -30,7 +30,10 @@ class MsgpackRPC
       method = @methods[method]
       # Call method, wait for output and reply with it
       method packet[3], (err, res) =>
-        res = msgpack.pack [1, packet[1], 0, res]
+        if err
+          res = msgpack.pack [1, packet[1], 1, err]
+        else
+          res = msgpack.pack [1, packet[1], 0, res]
         @_write res
 
     # Response: [type, msgid, error, result]
