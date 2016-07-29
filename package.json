@@ -9,8 +9,8 @@
   ],
   "author": "Luis Iván Cuende <luis@stampery.com>",
   "contributors": {
-    "name": "Pablo Merino",
-    "email": "pablo@stampery.com"
+    "name": "Adán Sánchez de Pedro Crespo",
+    "email": "adan@stampery.com"
   },
   "license": "MIT",
   "dependencies": {
@@ -19,5 +19,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/stampery/msgpackrpc.git"
+  },
+  "scripts": {
+    "build": "iced -c ./index.iced"
+  },
+  "devDependencies": {
+    "iced-coffee-script": "^108.0.11"
   }
 }
